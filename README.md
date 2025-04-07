@@ -1,2 +1,3 @@
 # lynx-tcec
-Lynx TCEC update script
+
+[Lynx](https://github.com/lynx-chess/Lynx) configuration files for [Top Chess Engine Championship (TCEC)](https://tcec-chess.com).

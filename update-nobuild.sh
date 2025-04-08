@@ -2,7 +2,7 @@
 
 ############################################################################
 ############################################################################
-# This script will create a directory named Lynx-<version>-linux-x64
+# This script creates a directory named Lynx-<version>-linux-x64
 # All files inside that directory are required to run Lynx as expected
 # Dependencies: wget and unzip
 ############################################################################

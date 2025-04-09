@@ -31,7 +31,7 @@ dirname="Lynx-$target-$dirname"
 
 git clone --depth 1 https://github.com/lynx-chess/Lynx.git $dirname
 cp $dirname/LICENSE .
-cp $dirname/src/Lynx/Lynx.Cli/appsettings.json .
+cp $dirname/src/Lynx.Cli/appsettings.json .
 
 cd $dirname
 

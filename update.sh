@@ -2,15 +2,16 @@
 
 ############################################################################
 ############################################################################
-# This script creates a binary file named Lynx-<version> and some adjacent
-# files in the current directory. All those files are required to run Lynx
-# as expected, so please keep them next to the binary,
+# This script builds Lynx latest development version from source.
+# Alternatively, LYNX_VERSION can be used to build a specific version.
 #
-# It also creates a temporary directory named Lynx-<branch>-<date>, which
-# can be deleted after the script finishes.
+# A binary file (Lynx.Cli) and some adjacent files are copied to $PWD.
+# All those files are required to run Lynx.
 #
-# All files inside that directory are required to run Lynx as expected
-# Dependencies: git, make and .NET SDK
+# The temporary directory Lynx-<branch>-<date> can be deleted
+# after the script finishes.
+#
+# Dependencies: git, make and .NET 9 SDK
 ############################################################################
 ############################################################################
 
@@ -29,11 +30,10 @@ fi
 printf -v dirname '%(%Y-%m-%d_%H-%M-%S)T' -1
 dirname="Lynx-$target-$dirname"
 
-git clone --depth 1 https://github.com/lynx-chess/Lynx.git $dirname
-cp $dirname/LICENSE .
-cp $dirname/src/Lynx.Cli/appsettings.json .
-
+git clone https://github.com/lynx-chess/Lynx.git $dirname
 cd $dirname
+
+echo "#### Checking out -> $target"
 
 git checkout $target
 git log -1 --pretty=oneline
@@ -48,24 +48,28 @@ dotnet --version
 # Build Lynx engine, detecting OS and architecture
 ############################################################################
 make
-
-############################################################################
-# Extract version, rename to Lynx-<version> and copy to original directory
-############################################################################
 EXE=$PWD/artifacts/Lynx/Lynx.Cli
 echo "#### Build output -> $EXE"
 
+############################################################################
+# Copy file to original directory
+############################################################################
+cp $EXE ..
+cp LICENSE .
+cp src/Lynx.Cli/appsettings.json .
+
+cd ..
+
+###############################################################################
+# Set $EXE variable, check version and run bench
+###############################################################################
+EXE=$PWD/Lynx.Cli
 chmod +x $EXE
 
 version=`$EXE "quit"`
-version=$(echo "$version" | sed -E 's/Lynx ([^ ]+) .*/Lynx-\1/')
+version=$(echo "$version" | grep -oP 'Lynx \K[^\s]+')
+
 echo "#### Version -> $version"
-
-cp $EXE ../$version
-cd ..
-
-EXE=$PWD/$version
 echo "#### Final path -> $EXE"
-chmod +x $EXE
 
 $EXE "bench"

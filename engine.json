@@ -1,0 +1,20 @@
+[
+    {
+        "command": "./Lynx.Cli",
+        "name": "Lynx-1.9.1-dev-8b362c8b",
+        "rating": "",
+        "restart": "on",
+        "options": [
+            {
+                "name": "Threads",
+                "value": "512"
+            },
+            {
+                "name": "Hash",
+                "value": "262144"
+            }
+        ],
+        "protocol": "uci",
+        "workingDirectory": "/home/tcec/Engines/Lynx"
+    }
+]

@@ -58,8 +58,8 @@ echo "#### Build output -> $EXE"
 # Copy file to original directory
 ###############################################################################
 cp $EXE ..
-cp LICENSE .
-cp src/Lynx.Cli/appsettings.json .
+cp LICENSE ..
+cp src/Lynx.Cli/appsettings.json ..
 
 cd ..
 

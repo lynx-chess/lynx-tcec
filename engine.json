@@ -7,7 +7,7 @@
         "options": [
             {
                 "name": "Threads",
-                "value": "512"
+                "value": "500"
             },
             {
                 "name": "Hash",

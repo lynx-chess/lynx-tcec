@@ -12,6 +12,9 @@
 # after the script finishes.
 #
 # Dependencies: git, make and .NET 9 SDK
+#
+# License: MIT
+# Source: https://github.com/lynx-chess/lynx-tcec/blob/main/update.sh
 ############################################################################
 ############################################################################
 

@@ -12,6 +12,9 @@
 # after the script finishes.
 #
 # Dependencies: curl, wget and unzip
+#
+# License: MIT
+# Source: https://github.com/lynx-chess/lynx-tcec/blob/main/update-nobuild.sh
 ###############################################################################
 ###############################################################################
 

@@ -71,6 +71,7 @@ chmod +x $EXE
 
 version=`$EXE "quit"`
 version=$(echo "$version" | grep -oP 'Lynx \K[^\s]+')
+$EXE "runtimeconfig" "quit"
 
 echo "#### Version -> $version"
 echo "#### Final path -> $EXE"

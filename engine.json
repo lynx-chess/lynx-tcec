@@ -1,7 +1,7 @@
 [
     {
         "command": "./Lynx.Cli",
-        "name": "Lynx 1.9.1-dev-5702e85b",
+        "name": "Lynx 1.9.1-dev-b4649288",
         "rating": "",
         "restart": "on",
         "options": [

@@ -33,10 +33,10 @@ fi
 printf -v dirname '%(%Y-%m-%d_%H-%M-%S)T' -1
 dirname="Lynx-$target-$dirname"
 
+echo "#### Checking out -> $target"
+
 git clone https://github.com/lynx-chess/Lynx.git $dirname
 cd $dirname
-
-echo "#### Checking out -> $target"
 
 git checkout $target
 git log -1 --pretty=oneline

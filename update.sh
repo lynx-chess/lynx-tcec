@@ -30,8 +30,9 @@ fi
 ###############################################################################
 # Clone the repository to Lynx-$target-$date
 ###############################################################################
-printf -v dirname '%(%Y-%m-%d_%H-%M-%S)T' -1
-dirname="Lynx-$target-$dirname"
+printf -v timestamp '%(%Y-%m-%d_%H-%M-%S)T' -1
+sanitized_target=${target//\//-} # Replace '/' with '-'
+dirname="Lynx-$sanitized_target-$timestamp"
 
 echo "#### Checking out -> $target"
 

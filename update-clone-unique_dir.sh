@@ -14,7 +14,7 @@
 # Dependencies: git, make and .NET 9 SDK
 #
 # License: MIT
-# Source: https://github.com/lynx-chess/lynx-tcec/blob/main/update.sh
+# https://github.com/lynx-chess/lynx-tcec/blob/main/update-clone-unique_dir.sh
 ###############################################################################
 ###############################################################################
 
@@ -28,10 +28,16 @@ else
 fi
 
 ###############################################################################
-# Clone the repository to Lynx/
+# Clone the repository to Lynx-$target-$date
 ###############################################################################
-git clone https://github.com/lynx-chess/Lynx.git
-cd Lynx
+printf -v timestamp '%(%Y-%m-%d_%H-%M-%S)T' -1
+sanitized_target=${target//\//-} # Replace '/' with '-'
+dirname="Lynx-$sanitized_target-$timestamp"
+
+echo "#### Checking out -> $target"
+
+git clone https://github.com/lynx-chess/Lynx.git $dirname
+cd $dirname
 
 git checkout $target
 git log -1 --pretty=oneline
@@ -50,10 +56,13 @@ EXE=$PWD/artifacts/Lynx/Lynx.Cli
 echo "#### Build output -> $EXE"
 
 ###############################################################################
-# Copy generated executable to repo root, together with required files
+# Copy file to original directory
 ###############################################################################
-cp $EXE .
-cp src/Lynx.Cli/appsettings.json .
+cp $EXE ..
+cp LICENSE ..
+cp src/Lynx.Cli/appsettings.json ..
+
+cd ..
 
 ###############################################################################
 # Set $EXE variable, check version and run bench

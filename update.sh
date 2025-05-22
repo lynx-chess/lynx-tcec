@@ -11,7 +11,7 @@
 # The temporary directory Lynx-<branch>-<date> can be deleted
 # after the script finishes.
 #
-# Dependencies: git, make and .NET 9 SDK
+# Dependencies: git, make, wget and .NET 9 SDK
 #
 # License: MIT
 # Source: https://github.com/lynx-chess/lynx-tcec/blob/main/update.sh
@@ -54,6 +54,11 @@ echo "#### Build output -> $EXE"
 ###############################################################################
 cp $EXE .
 cp src/Lynx.Cli/appsettings.json .
+
+###############################################################################
+# Download TCEC-specific configuration file
+###############################################################################
+wget https://github.com/lynx-chess/lynx-tcec/raw/main/appsettings.tournament.json
 
 ###############################################################################
 # Set $EXE variable, check version and run bench

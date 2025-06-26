@@ -65,6 +65,11 @@ cp src/Lynx.Cli/appsettings.json ..
 cd ..
 
 ###############################################################################
+# Download TCEC-specific configuration file
+###############################################################################
+wget https://github.com/lynx-chess/lynx-tcec/raw/main/appsettings.tournament.json
+
+###############################################################################
 # Set $EXE variable, check version and run bench
 ###############################################################################
 EXE=$PWD/Lynx.Cli

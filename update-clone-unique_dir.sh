@@ -11,7 +11,7 @@
 # The temporary directory Lynx-<branch>-<date> can be deleted
 # after the script finishes.
 #
-# Dependencies: git, make and .NET 9 SDK
+# Dependencies: git, make and .NET 10 SDK
 #
 # License: MIT
 # https://github.com/lynx-chess/lynx-tcec/blob/main/update-clone-unique_dir.sh

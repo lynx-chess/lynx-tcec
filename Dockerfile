@@ -16,7 +16,7 @@ RUN apt-get update && \
         curl wget unzip && \
     add-apt-repository ppa:dotnet/backports && \
     apt-get update && \
-    apt-get install -y dotnet-sdk-9.0
+    apt-get install -y dotnet-sdk-10.0
 
 FROM base AS ubuntu-playground
 

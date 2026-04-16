@@ -11,7 +11,7 @@
 # The temporary directory Lynx-<branch>-<date> can be deleted
 # after the script finishes.
 #
-# Dependencies: git, make, wget and .NET 9 SDK
+# Dependencies: git, make, wget and .NET 10 SDK
 #
 # License: MIT
 # Source: https://github.com/lynx-chess/lynx-tcec/blob/main/update.sh

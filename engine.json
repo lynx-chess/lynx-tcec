@@ -1,8 +1,8 @@
 [
     {
-        "command": "./Lynx.Cli",
-        "name": "Lynx 1.9.1-dev-9b6e1953",
-        "rating": "",
+        "command": "./Lynx.Cli.sh",
+        "name": "Lynx 1.11.0-dev-f87f5d5f",
+        "rating": "3319",
         "restart": "on",
         "options": [
             {
